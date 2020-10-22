@@ -1,13 +1,13 @@
-# PHP
-# Test and package your PHP project.
-# Add steps that run tests, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/php
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
 
 trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'macOS-latest'
 
 variables:
   phpVersion: 7.3
@@ -25,25 +25,14 @@ steps:
 - script: composer install --no-interaction --prefer-dist
   displayName: 'Composer install'
 
-- script: |
-    sudo apt install nodejs
-  displayName: 'Install node.js'
+# Install node.js if fails
 
 - script: |
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    sudo apt update && sudo apt install yarn
-    yarn encore dev --watch
+    curl -o- -L https://yarnpkg.com/install.sh | bash
     yarn install
+    yarn encore dev
     yarn --version
   displayName: 'Install yarn'
 
 - script: ./bin/phpunit
   displayName: 'Run tests with phpunit'
-
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(system.defaultWorkingDirectory)'
-    includeRootFolder: false
-    
-- task: PublishBuildArtifacts@1
