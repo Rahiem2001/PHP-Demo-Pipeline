@@ -34,5 +34,5 @@ steps:
     yarn --version
   displayName: 'Install yarn'
 
-- script: ./phpunit
+- script: ./bin/phpunit
   displayName: 'Run tests with phpunit'
