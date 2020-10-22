@@ -23,7 +23,19 @@ steps:
   displayName: 'Use PHP version $(phpVersion)'
 
 - script: composer install --no-interaction --prefer-dist
-  displayName: 'composer install'
+  displayName: 'Install composer'
+
+- script: |
+    sudo apt install nodejs
+    node -version
+  displayName: 'Install node.js'
+
+- script: |
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo apt update && sudo apt install yarn
+    yarn --version
+  displayName: 'Install yarn'
 
 - script: ./bin/phpunit
   displayName: 'Run tests with phpunit'
