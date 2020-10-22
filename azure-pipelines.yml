@@ -20,10 +20,11 @@ steps:
     sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
     sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
     php -version
+    composer install --no-interaction --prefer-dist
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: composer install --no-interaction --prefer-dist
-  displayName: 'Composer install'
+# - script: composer install --no-interaction --prefer-dist
+#   displayName: 'Composer install'
 
 - script: |
     sudo apt install nodejs
