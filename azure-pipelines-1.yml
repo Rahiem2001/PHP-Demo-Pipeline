@@ -29,8 +29,8 @@ steps:
 
 - script: |
     curl -o- -L https://yarnpkg.com/install.sh | bash
-    yarn encore dev --watch
     yarn install
+    yarn encore dev --watch
     yarn --version
   displayName: 'Install yarn'
 
