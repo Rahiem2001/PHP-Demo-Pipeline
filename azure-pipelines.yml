@@ -20,11 +20,10 @@ steps:
     sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
     sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
     php -version
-    composer install --no-interaction --prefer-dist
   displayName: 'Use PHP version $(phpVersion)'
 
-# - script: composer install --no-interaction --prefer-dist
-#   displayName: 'Composer install'
+- script: composer install --no-interaction --prefer-dist
+  displayName: 'Composer install'
 
 - script: |
     sudo apt install nodejs
@@ -35,6 +34,7 @@ steps:
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt update && sudo apt install yarn
     yarn encore dev --watch
+    yarn install
     yarn --version
   displayName: 'Install yarn'
 
