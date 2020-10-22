@@ -30,7 +30,7 @@ steps:
 - script: |
     curl -o- -L https://yarnpkg.com/install.sh | bash
     yarn install
-    yarn encore dev --watch
+    yarn encore dev
     yarn --version
   displayName: 'Install yarn'
 
