@@ -23,11 +23,11 @@ steps:
   displayName: 'Use PHP version $(phpVersion)'
 
 - script: composer install --no-interaction --prefer-dist
-  displayName: 'Install composer'
+  displayName: 'Composer install'
 
 - script: |
     sudo apt install nodejs
-    node -version
+    nodejs -version
   displayName: 'Install node.js'
 
 - script: |
