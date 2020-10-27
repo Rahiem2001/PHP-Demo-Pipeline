@@ -5,7 +5,7 @@
 
 trigger:
 - main
-- refs/tags/v*
+- refs/tags/*
 
 pool:
   vmImage: 'macOS-latest'
