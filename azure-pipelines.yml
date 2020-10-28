@@ -5,11 +5,11 @@
 
 trigger:
   tags:
-   include:
-     - '*'
+    include:
+    - '*'
   branches:
-   include:
-     - main
+    include:
+    - main
 
 pool:
   vmImage: 'macOS-latest'
