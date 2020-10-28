@@ -6,14 +6,6 @@ trigger:
 - main
 - refs/tags/*
 
-#trigger:
-#  tags:
-#    include:
-#    - '*'
-#  branches:
-#    include:
-#    - main
-
 pool:
   vmImage: 'macOS-latest'
 
