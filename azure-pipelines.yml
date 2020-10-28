@@ -6,7 +6,6 @@
 trigger:
 - main
 - refs/tags/*
-
 #this did not work
 #trigger:
 #  tags:
