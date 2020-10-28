@@ -4,8 +4,12 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
-- refs/tags/*
+  tags:
+   include:
+     - '*'
+  branches:
+   include:
+     - main
 
 pool:
   vmImage: 'macOS-latest'
