@@ -25,15 +25,17 @@ steps:
 - script: composer install --no-interaction --prefer-dist
   displayName: 'Composer install'
 
-- script: |
-    curl -o- -L https://yarnpkg.com/install.sh | bash
-    yarn install
-    yarn encore dev
-    yarn --version
-  displayName: 'Install yarn'
+# temporarily removed for debugging reasons
+#- script: |
+#    curl -o- -L https://yarnpkg.com/install.sh | bash
+#    yarn install
+#    yarn encore dev
+#    yarn --version
+#  displayName: 'Install yarn'
 
-- script: ./bin/phpunit
-  displayName: 'Run tests with phpunit'
+# meant to speed up the pipeline build process, gotta put this back
+#- script: ./bin/phpunit
+#  displayName: 'Run tests with phpunit'
 
 #- task: ArchiveFiles@2
 #  inputs:
