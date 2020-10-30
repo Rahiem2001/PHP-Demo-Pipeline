@@ -22,8 +22,9 @@ steps:
     php -version
   displayName: 'Use PHP version $(phpVersion)'
 
-- script: composer install --no-interaction --prefer-dist
-  displayName: 'Composer install'
+# Need to put this back too
+#- script: composer install --no-interaction --prefer-dist
+#  displayName: 'Composer install'
 
 # temporarily removed for debugging reasons
 #- script: |
